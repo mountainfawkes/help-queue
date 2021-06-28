@@ -11,7 +11,7 @@ const masterTicketList = [
     location: "3B",
     names: "Sleater and Kinney",
     issue: "Prop types are throwing an error"
-  }
+  },
   {
     location: "9F",
     names: "Imani and Jacob",
