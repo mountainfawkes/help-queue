@@ -5,8 +5,8 @@ function Ticket() {
   const name2 = "Haley";
   return (
   <h3>3a</h3>
-  <h3>{name} and {name2}</h3>
-  <p><em>Firebase entries not saving!</em></p>
+  <h3>{props.location} and {props.names}</h3>
+  <p><em>{props.issue}</em></p>
   {/* This is a comment! */}
   <hr/>
   );
