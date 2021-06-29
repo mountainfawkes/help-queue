@@ -6,13 +6,20 @@ class TicketControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // somethingggggg
+      formVisible: false
     }
   }
 
   render() {
+    let currentlyVisibleState = null;
+    if (this.state.formVisible) {
+      currentlyVisibleState = <NewTicketForm />
+    } else {
+      currentlyVisibleState = <TicketList />
+    }
     return (
       <>
+        {currentlyVisibleState}
       </>
     );
   }
