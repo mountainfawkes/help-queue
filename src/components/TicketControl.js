@@ -6,10 +6,9 @@ class TicketControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisible: false
-    }
-
-    this.handleClick = this.handleClick.bind(this);
+      formVisible: false,
+      masterTicketList: []
+    };
   }
 
   handleClick = () => {
@@ -18,14 +17,20 @@ class TicketControl extends Component {
       }));
   }
 
+  handleNewTicketCreation = (newTicket) => {
+    const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
+    this.setState({masterTicketList: newMasterTicketList, formVisible: false });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+
     if (this.state.formVisible) {
-      currentlyVisibleState = <NewTicketForm />
+      currentlyVisibleState = <NewTicketForm handleNewTicketCreation={this.handleNewTicketCreation} />
       buttonText = 'Return to ticket list';
     } else {
-      currentlyVisibleState = <TicketList />
+      currentlyVisibleState = <TicketList ticketList={this.state.masterTicketList} />
       buttonText = 'Add ticket';
     }
     return (
